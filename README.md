@@ -1,6 +1,6 @@
 # ExplainToMe
 
-`explaintome.py` is a Python script that uses the OpenAI GPT-3.5-Turbo API to generate an explanation of predominantly python code, but can do anything that chatGPT can. It reads code from a file provided as a command line argument, sends that code to the OpenAI API, and prints the generated explanation.
+`explaintome.py` is a Python script that uses the OpenAI GPT-3.5-Turbo API to generate an explanation of the code. It reads code from a file provided as a command line argument, sends that code to the OpenAI API, and prints the generated explanation.
 
 ## Requirements
 
@@ -18,7 +18,7 @@
 
 1. Replace `'your-api-key'` in the script with the API key obtained from the OpenAI website.
 2. Save the script to a file named `explaintome.py`.
-3. Run the script from the command line with a filename as an argument: `python explaintome.py [name of file]`. Replace `[name of file]` with the path to the Python file you want to explain.
+3. Run the script from the command line with a filename as an argument: `python explaintome.py [name of file]`. Replace `[name of file]` with the path to the file you want to explain.
 4. The script will print an explanation of the code to the console.
 
 ## Disclaimer
