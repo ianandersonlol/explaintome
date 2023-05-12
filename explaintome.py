@@ -36,6 +36,7 @@ def explain_code(code):
     return explanation
 
 try:
+    print("Generating explanation, please wait...")
     print(explain_code(code))
 except Exception as e:
     print(f"Failed to generate explanation: {e}")
