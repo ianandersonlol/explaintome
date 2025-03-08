@@ -46,14 +46,14 @@ def explain_code(code, model):
         print(f"API error: {e}")
         sys.exit(1)
 
-def generate_markdown(code, explanation, file_path):
+def generate_markdown(code, explanation, file_path, model):
     file_name = Path(file_path).name
     
     client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
     
     try:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model=model,
             messages=[
                 {"role": "system", "content": "You convert plain text code explanations into well-formatted markdown documentation."},
                 {"role": "user", "content": f"Convert this explanation of {file_name} into well-formatted markdown with appropriate headers, code blocks, and sections:\n\nCode:\n```\n{code}\n```\n\nExplanation:\n{explanation}"}
@@ -88,8 +88,8 @@ def main():
     
     if args.output:
         if args.markdown:
-            print("Generating markdown documentation...")
-            content = generate_markdown(code, explanation, args.file)
+            print(f"Generating markdown documentation using {args.model}...")
+            content = generate_markdown(code, explanation, args.file, args.model)
             output_path = args.output if args.output.endswith('.md') else f"{args.output}.md"
         else:
             content = explanation
